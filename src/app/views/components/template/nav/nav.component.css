@@ -1,0 +1,27 @@
+.container {
+  height: 83%;
+}
+
+i {
+  margin-right: 1rem;
+}
+
+button {
+  margin: 1rem auto 0 1rem;
+}
+
+.center{
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  /* justify-content: center; */
+  margin-bottom: .5rem;
+  height: 40px;
+}
+
+.sidenav {
+  border-right: 1px solid rgb(57,57,57);
+  border-bottom: 1px solid rgb(57,57,57);
+  background-color: rgb(57,57,57);
+  color: white;
+}
