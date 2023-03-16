@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environments';
-import { OS } from '../models/os';
+import { OS, OSDTO } from '../models/os';
 
 @Injectable({
   providedIn: 'root'
@@ -16,29 +16,29 @@ export class OsService {
     private http: HttpClient,
     private snack: MatSnackBar) { }
 
-  findAll(): Observable<OS[]> {
+  findAll(): Observable<OSDTO[]> {
     const url = this.baseUrl + "/api/order-service";
-    return this.http.get<OS[]>(url);
+    return this.http.get<OSDTO[]>(url);
   }
 
-  findById(id : any):Observable<OS>{
+  findById(id : any):Observable<OSDTO>{
     const url = `${this.baseUrl}/api/order-service/${id}`;
-    return this.http.get<OS>(url);
+    return this.http.get<OSDTO>(url);
   }
 
-  create(os: OS): Observable<OS> {
+  create(os: OSDTO): Observable<OS> {
     const url = this.baseUrl + "/api/order-service";
     return this.http.post<OS>(url, os);
   }
 
-  update(os: OS):Observable<OS> {
-    const url = `${this.baseUrl}/api/order-service`;
-    return this.http.put<OS>(url, os);
+  update(props: {os: OSDTO, id: any}):Observable<OSDTO> {
+    const url = `${this.baseUrl}/api/order-service/` + props.id;
+    return this.http.put<OSDTO>(url, props.os);
   }
 
-  delete(id : any):Observable<void> {
-    const url = `${this.baseUrl}/api/order-service/${id}`;
-    return this.http.delete<void>(url);
+  async delete(id: any): Promise<Observable<void>> {
+    const url = this.baseUrl + "./api/order-service/" + id;
+    return await this.http.delete<void>(url);
   }
 
   message(msg: String): void {

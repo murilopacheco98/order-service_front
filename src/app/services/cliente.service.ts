@@ -19,7 +19,7 @@ export class ClienteService {
   }
 
   findById(id: any): Observable<Cliente> {
-    const url = this.baseUrl + "api/cliente/" + id;
+    const url = this.baseUrl + "/api/cliente/" + id;
     return this.http.get<Cliente>(url);
   }
 
@@ -33,9 +33,9 @@ export class ClienteService {
     return this.http.put<Cliente>(url, cliente);
   }
 
-  delete(id: any): Observable<void> {
-    const url = `${this.baseUrl}/api/cliente/${id}`;
-    return this.http.delete<void>(url);
+  async delete(id: any): Promise<Observable<void>> {
+    const url =  this.baseUrl + "./api/cliente/" + id;
+    return await this.http.delete<void>(url);
   }
 
   message(msg: String): void {

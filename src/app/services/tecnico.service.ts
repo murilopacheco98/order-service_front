@@ -40,8 +40,8 @@ export class TecnicoService {
   // }
 
   async delete(id: any): Promise<Observable<void>> {
-    const url = await this.baseUrl + "./api/tecnico/" + id;
-    return this.http.delete<void>(url);
+    const url = this.baseUrl + "./api/tecnico/" + id;
+    return await this.http.delete<void>(url);
   }
   
   message(msg: String): void {

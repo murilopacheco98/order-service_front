@@ -35,11 +35,16 @@ export class ClienteReadComponent implements AfterViewInit {
     this.router.navigate(["clientes/create"]);
   }
 
-  confirmDelete(name: string, id: any) {
+  async confirmDelete(name: string, id: any) {
     if (confirm("Tem certeza que você deseja deletar o(a): " + name)) {
-      this.service.delete(id).subscribe();
-      this.service.message("Usuário deletado com sucesso.");  
-      this.findAll();
-    }    
+      this.clientes.splice(
+        this.clientes.findIndex((item) => item.id === id),
+        1
+      );
+      
+      (await this.service.delete(id)).subscribe();
+      this.service.message("Usuário deletado com sucesso.");
+    }
+    window.location.reload();
   }
 }

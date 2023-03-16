@@ -42,13 +42,13 @@ export class ClienteUpdateComponent implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(["cliente"]);
+    this.router.navigate(["clientes"]);
   }
 
   update(): void {
     this.service.update(this.cliente).subscribe(
       (resposta) => {
-        this.router.navigate(["cliente"]);
+        this.router.navigate(["clientes"]);
         this.service.message("Cliente atualizado com sucesso!");
       },
       (error) => {

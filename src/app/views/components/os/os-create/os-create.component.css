@@ -14,17 +14,12 @@
     width: 70%;
   }
 }
+
 .flexData {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-
-/* @media screen and (min-width: 1000px) {
-  .flexData {
-    display: flex;
-  }
-} */
 
 h1 {
   text-align: center;

@@ -4,16 +4,17 @@
   <div class="flexData">
       <mat-form-field appearance="fill" class="labels">
         <mat-label>Técnico</mat-label>
-        <mat-select [(value)]="os.tecnico" >
+        <mat-select [(value)]="os.tecnicoDTO.nome" >
           <mat-option *ngFor="let tec of tecnicos" value="{{ tec.id }}">{{
             tec.nome
+
           }}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="labels">
         <mat-label>Cliente</mat-label>
-        <mat-select [(value)]="os.cliente">
+        <mat-select [(value)]="os.clienteDTO.nome">
           <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">{{
             cli.nome
           }}</mat-option>
@@ -21,7 +22,7 @@
       </mat-form-field>
       <mat-form-field appearance="fill" class="labels">
         <mat-label>Status</mat-label>
-        <mat-select [(value)]="os.status">
+        <mat-select [(value)]="os.statusId">
           <mat-option value="0">ABERTO</mat-option>
           <mat-option value="1">EM ANDAMENTO</mat-option>
           <mat-option value="2">ENCERRADO</mat-option>
@@ -30,7 +31,7 @@
 
       <mat-form-field appearance="fill" class="labels">
         <mat-label>Prioridade</mat-label>
-        <mat-select [(value)]="os.prioridade">
+        <mat-select [(value)]="os.prioridadeId">
           <mat-option value="0">BAIXA</mat-option>
           <mat-option value="1">MÉDIA</mat-option>
           <mat-option value="2">ALTA</mat-option>

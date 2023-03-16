@@ -24,13 +24,13 @@ export class ClienteCreateComponent {
   constructor(private router: Router, private service: ClienteService) {}
 
   cancel(): void {
-    this.router.navigate(["cliente"]);
+    this.router.navigate(["clientes"]);
   }
 
   create(): void {
     this.service.create(this.cliente).subscribe(
       (resposta) => {
-        this.router.navigate(["cliente"]);
+        this.router.navigate(["clientes"]);
         this.service.message("Cliente criado sucesso!");
       },
       (error) => {
