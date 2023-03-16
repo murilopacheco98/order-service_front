@@ -1,5 +1,5 @@
 <mat-drawer-container class="container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="side">
+  <mat-drawer #drawer #sidenav class="sidenav" mode="side">
     <mat-nav-list class="nav-list">
       <a mat-list-item routerLink="/">
         <div class="center"><i class="material-icons">home</i>Home</div>
@@ -20,9 +20,9 @@
     </mat-nav-list>
   </mat-drawer>
 
-  <div class="sidenav-content">
-    <button mat-icon-button (click)="drawer.toggle()">
-      <mat-icon>menu</mat-icon>
+  <div class="sidenav-content" style="margin-top: -10px;">
+    <button mat-icon-button (click)="drawer.toggle()" style="margin-bottom: -20px; width: 75px; height: 60px;">
+      <mat-icon style="font-size: 40px; height: 35px; width: 30px;">menu</mat-icon>
     </button>
     <router-outlet></router-outlet>
   </div>
