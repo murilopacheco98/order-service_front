@@ -6,7 +6,7 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MatSelectModule } from "@angular/material/select";
 import { MatInputModule } from "@angular/material/input";
 import { MatDatepickerModule } from "@angular/material/datepicker";
@@ -29,11 +29,13 @@ import { TecnicoUpdateComponent } from "./views/components/tecnico/tecnico-updat
 import { ClienteCreateComponent } from "./views/components/cliente/cliente-create/cliente-create.component";
 import { ClienteUpdateComponent } from "./views/components/cliente/cliente-update/cliente-update.component";
 import { ClienteReadComponent } from "./views/components/cliente/cliente-read/cliente-read.component";
-import { OsReadComponent } from './views/components/os/os-read/os-read.component';
-import { OsCreateComponent } from './views/components/os/os-create/os-create.component';
-import { OsUpdateComponent } from './views/components/os/os-update/os-update.component';
-import { OsDescriptionComponent } from './views/components/os/os-description/os-description.component';
-import { OsClosedComponent } from './views/components/os-closed/os-closed.component';
+import { OsReadComponent } from "./views/components/os/os-read/os-read.component";
+import { OsCreateComponent } from "./views/components/os/os-create/os-create.component";
+import { OsUpdateComponent } from "./views/components/os/os-update/os-update.component";
+import { OsDescriptionComponent } from "./views/components/os/os-description/os-description.component";
+import { OsClosedComponent } from "./views/components/os-closed/os-closed.component";
+import { SpinnerComponent } from "./views/components/template/spinner/spinner.component";
+import { LoadingInterceptor } from "./loading.interceptor";
 
 @NgModule({
   declarations: [
@@ -53,17 +55,18 @@ import { OsClosedComponent } from './views/components/os-closed/os-closed.compon
     OsUpdateComponent,
     OsDescriptionComponent,
     OsClosedComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -80,7 +83,13 @@ import { OsClosedComponent } from './views/components/os-closed/os-closed.compon
     MatPaginatorModule,
     MatSnackBarModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
