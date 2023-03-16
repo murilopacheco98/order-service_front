@@ -1,20 +1,18 @@
 <div class="container">
   <h1>Criando nova Ordem de Serviço</h1>
-
   <div class="flexData">
       <mat-form-field appearance="fill" class="labels">
         <mat-label>Técnico</mat-label>
-        <mat-select [(value)]="os.tecnicoDTO.nome" >
-          <mat-option *ngFor="let tec of tecnicos" value="{{ tec.id }}">{{
+        <mat-select [(value)]="os.tecnicoDTO.id" >
+          <mat-option *ngFor="let tec of tecnicos" [value]="tec.id">{{
             tec.nome
-
           }}</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="labels">
         <mat-label>Cliente</mat-label>
-        <mat-select [(value)]="os.clienteDTO.nome">
+        <mat-select [(value)]="os.clienteDTO.id">
           <mat-option *ngFor="let cli of clientes" value="{{ cli.id }}">{{
             cli.nome
           }}</mat-option>
@@ -46,7 +44,8 @@
         [(ngModel)]="os.observacoes"
         name="observacoes"
         matInput
-        maxlength="255"
+        style="height: 200px;"
+        maxlength="500"
       ></textarea>
     </mat-form-field>
   </form>
@@ -56,6 +55,7 @@
     class="mat-elevation-z8"
     mat-stroked-button
     color="accent"
+    style="margin-right: 10%;"
   >
     CRIAR
   </button>

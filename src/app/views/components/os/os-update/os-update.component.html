@@ -1,16 +1,16 @@
 <div class="container">
   <h1>Atualizando Ordem de Serviço</h1>
 
-  <div class="labels">
-    <mat-form-field appearance="fill">
+  <div class="flexData">
+    <mat-form-field appearance="fill" class="labels">
       <mat-label>Técnico</mat-label>
-        <mat-select [(ngModel)]="os.tecnicoDTO.id" >
-          <mat-option *ngFor="let tec of tecnicos" [value]="tec.id">{{
-            tec.nome
-          }}</mat-option>
-        </mat-select>
+      <mat-select [(ngModel)]="os.tecnicoDTO.id">
+        <mat-option *ngFor="let tec of tecnicos" [value]="tec.id">{{
+          tec.nome
+        }}</mat-option>
+      </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="labels">
       <mat-label>Cliente</mat-label>
       <mat-select [(ngModel)]="os.clienteDTO.id">
         <mat-option *ngFor="let cli of clientes" [value]="cli.id">{{
@@ -19,7 +19,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="labels">
       <mat-label>Status</mat-label>
       <mat-select [(value)]="os.statusId">
         <mat-option [value]="0">ABERTO</mat-option>
@@ -28,7 +28,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="labels">
       <mat-label>Prioridade</mat-label>
       <mat-select [(value)]="os.prioridadeId">
         <mat-option [value]="0">BAIXA</mat-option>
@@ -45,6 +45,7 @@
         [(ngModel)]="os.observacoes"
         name="observacoes"
         matInput
+        style="height: 200px"
         maxlength="255"
       ></textarea>
     </mat-form-field>
@@ -55,6 +56,7 @@
     class="mat-elevation-z8"
     mat-stroked-button
     color="accent"
+    style="margin-right: 10%"
   >
     ATUALIZAR
   </button>

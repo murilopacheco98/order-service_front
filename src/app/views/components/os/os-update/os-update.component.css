@@ -1,16 +1,36 @@
 .container {
-  width: 70%;
+  width: 90%;
   margin: auto;
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 70%;
+  }
+}
+
+.flexData {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
 }
 
 .labels {
   display: flex;
   justify-content: space-between;
+  margin-right: 5%;
+  min-width: 10rem;
 }
 
 .full-width {
@@ -18,11 +38,11 @@ h1 {
 }
 
 textarea {
-  min-height: 4rem;
+  min-height: 8rem;
   max-height: 35rem;
 }
 
 button {
-  width: 100%;
-  margin-bottom: .5rem;
+  width: 45%;
+  margin-bottom: 0.5rem;
 }
